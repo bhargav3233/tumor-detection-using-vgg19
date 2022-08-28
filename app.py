@@ -64,11 +64,6 @@ a:hover,  a:active {
     color: black;
     text-align: center;
 }
-</style>
-<div class="footer">
-<p align="center"> <a href="https://www.linkedin.com/in/bhargav-reddy-8602b1221/">Developed with ❤ by Bhargav</a></p>
-</div>
-        """
 
 st.markdown(footer, unsafe_allow_html = True)
 
