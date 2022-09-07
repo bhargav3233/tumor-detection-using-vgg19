@@ -13,7 +13,7 @@ hide_streamlit_style = """
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html = True)
 
-st.title('Brain Tumor Disease Detection')
+st.title('Brain Cancer Detection')
 
 def main() :
     file_uploaded = st.file_uploader('Choose an image...', type = 'jpg')
@@ -30,11 +30,11 @@ def main() :
 
 def predict_class(image) :
     with st.spinner('Loading Model...'):
-        classifier_model = keras.models.load_model(r'D:/tumortype/brain_tumor_detector.h5', compile = False)
+        classifier_model = keras.models.load_model(r'C:/Users/Sriram/Downloads/tumor-detection-using-vgg19-main/tumor-detection-using-vgg19-main/brain_tumor_detection.h5', compile = False)
 
     shape = ((224,224,3))
-    model = keras.Sequential([hub.KerasLayer(classifier_model, input_shape = shape)])   
-    test_image = image.resize((224, 224))
+    model = keras.Sequential([hub.KerasLayer(classifier_model, input_shape = shape)])
+    test_image = image.resize((256, 256))
     test_image = keras.preprocessing.image.img_to_array(test_image)
     test_image /= 255.0
     test_image = np.expand_dims(test_image, axis = 0)
@@ -64,6 +64,11 @@ a:hover,  a:active {
     color: black;
     text-align: center;
 }
+</style>
+<div class="footer">
+<p align="center"> <a href="https://www.linkedin.com/in/bhargav-reddy-8602b1221/">Developed with ❤ by Bhargav</a></p>
+</div>
+        """
 
 st.markdown(footer, unsafe_allow_html = True)
 
